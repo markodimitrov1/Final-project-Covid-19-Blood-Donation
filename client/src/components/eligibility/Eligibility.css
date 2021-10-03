@@ -1,0 +1,40 @@
+.mdl{
+    max-width: none!important;
+    width: 40%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+    
+    
+  }
+  #par::after {
+    content: attr(data-content);
+  }
+
+.btno{
+  margin-left: 4%!important;
+}
+.modal-dialog{
+  max-width: none!important;
+}
+.modal.show .modal-dialog {
+  width: 100%;
+}
+
+.kopcinja{
+  display: flex;
+  justify-content: space-around;
+}
+
+.btyes{
+  width: 15%;
+}
+.btno{
+  width: 15%;
+}
+.green{
+  background-color: green;
+}

@@ -1,0 +1,204 @@
+import React from "react";
+import Card from "react-bootstrap/Card";
+import CardDeck from "react-bootstrap/CardDeck";
+import ListGroup from "react-bootstrap/ListGroup";
+import ListGroupItem from "react-bootstrap/ListGroupItem";
+import Axios from "axios";
+import { Component, useEffect, useState, useContext } from "react";
+import UserCard from "../usercard/UserCard";
+import Form from "react-bootstrap/Form";
+import { Container, Row, Col } from "react-bootstrap";
+import { Button, span } from "react-bootstrap";
+
+const Donors = (props) => {
+  const [donorName, setDonorName] = useState("");
+  const [donorBlood, setDonorBlood] = useState("");
+  const [donorEmail, setDonorEmail] = useState("");
+  const [donorCity, setDonorCity] = useState("");
+  const [donorCovid, setDonorCovid] = useState("");
+
+  const DonorList =[];
+
+  const [type, setType] = useState("Сите");
+  const [city, setCity] = useState("Сите");
+
+  const searchDonors = () => {
+    Axios.post("http://localhost:3001/donors", {
+      type: type,
+      city: city,
+    }).then((response) => {
+      for (var i = 0; ; i++) {
+        if (response.data[i]) {
+          setDonorName(response.data[i].name);
+          setDonorBlood(response.data[i].id);
+          setDonorEmail(response.data[i].email);
+          setDonorCity(response.data[i].city);
+          setDonorCovid(response.data[i].covid);    
+        }
+        else{
+            break;
+        }
+        console.log("success");
+      }
+    });
+  };
+
+  //   const donorData = async () => {
+  //     try {
+  //       const res = await Axios.get("http://localhost:3001/donors");
+  //       setDonorName(res.data.result[5].name);
+  //       setDonorBlood(res.data.result[0].blood);
+  //       setDonorEmail(res.data.result[0].email);
+  //       setDonorCity(res.data.result[0].city);
+  //       setDonorCovid(res.data.result[0].covid);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+
+  //   useEffect(() => {
+  //     donorData();
+  //   }, []);
+
+  return (
+    <div className="Donors">
+      <Form>
+        <Form.Group as={Row} controlId="formHorizontalPassword">
+          <Form.Label column sm={2}>
+            Изберете крвна група:
+          </Form.Label>
+          <Col sm={3}>
+            <Form.Control
+              as="select"
+              className="mr-sm-2"
+              id="inlineFormCustomSelect"
+              custom
+              required
+              aria-required="true"
+              onChange={(event) => {
+                setType(event.target.value);
+              }}
+            >
+              <option value="Сите" selected>
+                Сите
+              </option>
+              <option value="O-">O-</option>
+              <option value="O+">O+</option>
+              <option value="A-">A-</option>
+              <option value="A+">A+</option>
+              <option value="B-">B-</option>
+              <option value="B+">B+</option>
+              <option value="AB-">AB-</option>
+              <option value="AB+">AB+</option>
+            </Form.Control>
+          </Col>
+          <Form.Label column sm={2}>
+            Изберете Град:
+          </Form.Label>
+          <Col sm={3}>
+            <Form.Control
+              as="select"
+              className="mr-sm-2"
+              id="inlineFormCustomSelect"
+              custom
+              required
+              aria-required="true"
+              onChange={(event) => {
+                setCity(event.target.value);
+              }}
+            >
+              <option value="Сите" selected>
+                Сите
+              </option>
+              <option value="Скопје">Скопје</option>
+              <option value="Велес">Велес</option>
+              <option value="Демир Капија">Демир Капија</option>
+              <option value="Кавадарци">Кавадарци</option>
+              <option value="Неготино">Неготино</option>
+              <option value="Свети Николе">Свети Николе</option>
+              <option value="Берово">Берово</option>
+              <option value="Виница">Виница</option>
+              <option value="Делчево">Делчево</option>
+              <option value="Кочани">Кочани</option>
+              <option value="Македонска Каменица">Македонска Каменица</option>
+              <option value="Пехчево">Пехчево</option>
+              <option value="Пробиштип">Пробиштип</option>
+              <option value="Штип">Штип</option>
+              <option value="Дебар">Дебар</option>
+              <option value="Кичево">Кичево</option>
+              <option value="Македонски Брод">Македонски Брод</option>
+              <option value="Охрид">Охрид</option>
+              <option value="Струга">Струга</option>
+              <option value="Богданци">Богданци</option>
+              <option value="Валандово">Валандово</option>
+              <option value="Гевгелија">Гевгелија</option>
+              <option value="Радовиш">Радовиш</option>
+              <option value="Струмица">Струмица</option>
+              <option value="Битола">Битола</option>
+              <option value="Демир Хисар">Демир Хисар</option>
+              <option value="Крушево">Крушево</option>
+              <option value="Прилеп">Прилеп</option>
+              <option value="Ресен">Ресен</option>
+              <option value="Гостивар">Гостивар</option>
+              <option value="Тетово">Тетово</option>
+              <option value="Кратово">Кратово</option>
+              <option value="Крива Паланка">Крива Паланка</option>
+              <option value="Куманово">Куманово</option>
+            </Form.Control>
+          </Col>
+          <Col sm={2}>
+            <Button onClick={searchDonors}>Барај</Button>
+          </Col>
+        </Form.Group>
+      </Form>
+      <CardDeck>
+        <UserCard
+          name={donorName}
+          type={donorBlood}
+          city={donorCity}
+          covid={donorCovid}
+          email={donorEmail}
+        />
+        <UserCard
+          name="Marko"
+          type="A+"
+          city="Vinica"
+          covid="DA"
+          email="dkashd@bjdsf.com"
+        />
+        <UserCard
+          name="Marko"
+          type="A+"
+          city="Vinica"
+          covid="DA"
+          email="dkashd@bjdsf.com"
+        />
+      </CardDeck>
+      <CardDeck>
+        <UserCard
+          name="Marko"
+          type="A+"
+          city="Vinica"
+          covid="DA"
+          email="dkashd@bjdsf.com"
+        />
+        <UserCard
+          name="Marko"
+          type="A+"
+          city="Vinica"
+          covid="DA"
+          email="dkashd@bjdsf.com"
+        />
+        <UserCard
+          name="Marko"
+          type="A+"
+          city="Vinica"
+          covid="DA"
+          email="dkashd@bjdsf.com"
+        />
+      </CardDeck>
+    </div>
+  );
+};
+
+export default Donors;

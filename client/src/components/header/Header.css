@@ -1,0 +1,119 @@
+.button-najava{
+  background-color: red  !important;
+  
+}
+p{
+    margin:0!important;
+    padding: 0;
+}
+.modal-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar{
+    position: absolute;
+    display: flex;
+   width: 100%;
+
+}
+.nbar{
+    width: 100%;
+    background-color: rgb(212, 53, 53);
+    justify-content: space-between;
+    position: absolute;
+    font-size: large;
+   
+
+}
+
+.navmenu{
+    position: relative;
+    display: block;
+    font-weight: 600;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+    
+ 
+
+@media (max-width: 800px) {
+    .navmenu { margin-left: 0; width: 100%; }
+}
+
+.nvlink
+{
+    color: white!important;
+    position: relative;
+    text-decoration: none !important;
+    justify-content: center;
+    align-items: center;
+}
+.nvlink::after{
+    content: "";
+    position: absolute;
+    background: white;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    transition: 0.4s;
+    
+}
+.nvlink:hover::after{
+    width: 100%;
+}
+.registrirajse{
+    text-decoration: underline;
+    color:red;
+}
+
+.najava{
+    border-radius:30px;
+    width: auto;
+    display: inline-block;
+    border: 1px solid gray;
+    background-color: white;
+    position: relative;
+}
+
+
+.najava:hover{
+
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    text-decoration: underline;
+
+
+}
+.najava:active{
+    transform: translateY(-0.1rem);
+    box-shadow: 0 .5rem .1rem rgba(0,0,0,1);
+    
+    
+}
+.najavanav{
+    color: rgb(212, 53, 53)!important;
+    font-weight: 600;
+}
+
+/* #registracija{
+    max-width: none;
+    width: 45%;
+} */
+.modal-najava {
+    width: 40%!important;
+    margin: 30%;
+    margin-top: 10%;
+    position: absolute;
+}
+
+.marginleft{
+    margin-left: 50px;
+}
+
+.odjava{
+    margin-left: 10px;
+}

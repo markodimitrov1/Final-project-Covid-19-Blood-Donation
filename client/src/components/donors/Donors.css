@@ -1,0 +1,44 @@
+.paginationBttns {
+    width: 80%;
+    height: 40px;
+    list-style: none !important;
+    display: flex;
+    justify-content: center;
+}
+
+.paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid rgb(212, 53, 53);
+    cursor: pointer;
+}
+
+.paginationBttns a:hover {
+    color: white;
+    background-color: rgb(212, 53, 53);
+}
+
+.paginationActive a {
+    color: white;
+    background-color: rgb(212, 53, 53);
+}
+
+.userpic{
+    height: 270px;
+}
+.formclass{
+    width: auto;
+    border: 3px solid rgb(212, 53, 53);
+    border-radius: 20px;
+}
+.rowclass{
+    padding-top: 14px;
+    padding-left: 5%;
+}
+.colclass{
+    border-right: 3px solid rgb(212, 53, 53);
+}
+.karticka{
+    margin-bottom: 20px;
+}

@@ -1,0 +1,14 @@
+/* .App{
+    display: flex;
+    flex-direction: column;
+   
+}
+] */
+
+
+.Container{
+    margin-left: 18%;
+    width: 81%;
+    min-height: 86vh;
+    position: relative;
+}

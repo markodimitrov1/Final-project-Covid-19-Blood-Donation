@@ -1,0 +1,37 @@
+.paginationBttns {
+    width: 80%;
+    height: 40px;
+    list-style: none !important;
+    display: flex;
+    justify-content: center;
+}
+
+.paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid rgb(212, 53, 53);
+    cursor: pointer;
+}
+
+.paginationBttns a:hover {
+    color: white;
+    background-color: rgb(212, 53, 53);
+}
+
+.paginationActive a {
+    color: white;
+    background-color: rgb(212, 53, 53);
+}
+#userarticles{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+#userarticlecard{
+    flex: 1;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}

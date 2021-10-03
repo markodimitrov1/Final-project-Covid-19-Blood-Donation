@@ -1,0 +1,43 @@
+const addUser = () => {
+    
+    Axios.post("http://localhost:3001/email", {
+      email: email,
+    }).then((response) => {
+      if (response.data == email) {
+        setUserexist(true);
+      } else {
+        Axios.post("http://localhost:3001/username", {
+          username: username,
+        }).then((response) => {
+          console.log(response);
+          if (response.data == username) {
+            setUserexist(true);
+if (password == confirmpass) {
+      setIfspan(false);
+    } 
+      setIfspan(true);
+          }
+          else{
+            setIfspan(false);
+            setUserexist(false);
+            Axios.post("http://localhost:3001/register", {
+              name: name,
+              date: date,
+              email: email,
+              username: username,
+              password: password,
+              city: city,
+              blood: blood,
+              covid: covid,
+            }).then((response) => {
+              console.log("success");
+            });
+
+          }
+        });
+        console.log("false");
+
+        
+      }
+    });
+  };
